@@ -12,6 +12,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      -webkit-touch-callout: none;
     }
     
     .form-container {
@@ -98,86 +99,35 @@
      <h1 id="formTitle" class="text-3xl font-bold text-gray-800 mb-2">Absensi Profiling ASN TVRI 2025</h1>
     </div>
     <form id="employeeForm">
-     <div class="mb-5"><label for="nama" class="block text-sm font-semibold text-gray-700 mb-2">Nama Lengkap</label> <select id="nama" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none transition-colors"> 
-        <option value="">Pilih Nama</option>
-        <option value="ABDULLAH PIKRI, S.Sos.">ABDULLAH PIKRI, S.Sos.</option>
-        <option value="ADI PRATOMO, Ak., CCSA.">ADI PRATOMO, Ak., CCSA.</option>
-        <option value="AGUS PRASETIJO, S.Sos.">AGUS PRASETIJO, S.Sos.</option>
-        <option value="AIDHA ROSILAWATI, MM.">AIDHA ROSILAWATI, MM.</option>
-        <option value="AKHBAR SAHIDI, S.Sos.">AKHBAR SAHIDI, S.Sos.</option>
-        <option value="ALFA GENESIS, SE">ALFA GENESIS, SE</option>
-        <option value="ALI QAUSEN, M.Si">ALI QAUSEN, M.Si</option>
-        <option value="AMRI AZHARI., S.Kom">AMRI AZHARI., S.Kom</option>
-        <option value="ANASRUL YUSAK, S.Kom">ANASRUL YUSAK, S.Kom</option>
-        <option value="ANDI FACHRUDDIN M., M.Si">ANDI FACHRUDDIN M., M.Si</option>
-        <option value="ANDRIA SABARINO, SE.,MM">ANDRIA SABARINO, SE.,MM</option>
-        <option value="ASIM MULYADI, S.Sos">ASIM MULYADI, S.Sos</option>
-        <option value="BARNO, SE., MM.">BARNO, SE., MM.</option>
-        <option value="BUDY KURNIAWAN, S.Sos.">BUDY KURNIAWAN, S.Sos.</option>
-        <option value="CANDRA PURNAMA TRI MAHENDRA, SH.">CANDRA PURNAMA TRI MAHENDRA, SH.</option>
-        <option value="CHANDRA EDWIN, S.I.A.">CHANDRA EDWIN, S.I.A.</option>
-        <option value="DIDIK KUSJADMIKA, S.H.">DIDIK KUSJADMIKA, S.H.</option>
-        <option value="EDWARD">EDWARD</option>
-        <option value="EFLIANTY ANALISA, SP. M.Si">EFLIANTY ANALISA, SP. M.Si</option>
-        <option value="EMELIA BAHARESSA, S.Sos, MM.">EMELIA BAHARESSA, S.Sos, MM.</option>
-        <option value="EMIRIZON, S.A.P., M.Si.">EMIRIZON, S.A.P., M.Si.</option>
-        <option value="ERWIN HENDARWIN, SE., M.Si.">ERWIN HENDARWIN, SE., M.Si.</option>
-        <option value="FAHRUDIN, SE.">FAHRUDIN, SE.</option>
-        <option value="FEBRIANI, S.S., M.Ikom.">FEBRIANI, S.S., M.Ikom.</option>
-        <option value="FERRALINA SUOTH, SE., MM.">FERRALINA SUOTH, SE., MM.</option>
-        <option value="FONDA RAFAEL, S.Sos. M.Kom">FONDA RAFAEL, S.Sos. M.Kom</option>
-        <option value="FONNY M. PONGOH, SE, MAP">FONNY M. PONGOH, SE, MAP</option>
-        <option value="FRANS ALFONSUS LOLONG LASUT, S.Sos">FRANS ALFONSUS LOLONG LASUT, S.Sos</option>
-        <option value="HARI SETIYA, SAB., MAB.">HARI SETIYA, SAB., MAB.</option>
-        <option value="HENDRO RAGIL PRIYANTO, S.Kom.">HENDRO RAGIL PRIYANTO, S.Kom.</option>
-        <option value="HENDY SUSATYO., S.Kom.">HENDY SUSATYO., S.Kom.</option>
-        <option value="HERLY MARJONI, S.Sos., MM.">HERLY MARJONI, S.Sos., MM.</option>
-        <option value="HERMAN EFFENDI, S.Sos., MM.">HERMAN EFFENDI, S.Sos., MM.</option>
-        <option value="HUSIN, ST., MM">HUSIN, ST., MM</option>
-        <option value="I KETUT WILANA, MM">I KETUT WILANA, MM</option>
-        <option value="I NYOMAN WIRADNYANA, ST">I NYOMAN WIRADNYANA, ST</option>
-        <option value="IDA PARIDA">IDA PARIDA</option>
-        <option value="IKA WULANDARI, S.M">IKA WULANDARI, S.M</option>
-        <option value="IRVAN ROSYA, ST.">IRVAN ROSYA, ST.</option>
-        <option value="JATI SETYOWAHYU, ST., MAB.">JATI SETYOWAHYU, ST., MAB.</option>
-        <option value="JEFRI, SH.MH">JEFRI, SH.MH</option>
-        <option value="JOSEPH HERMAN SUSANTO, SE.">JOSEPH HERMAN SUSANTO, SE.</option>
-        <option value="LIVIYANTI MEGA AYUNITA, S.Sos,MM">LIVIYANTI MEGA AYUNITA, S.Sos,MM</option>
-        <option value="MAHYAR, S.Sos., MM">MAHYAR, S.Sos., MM</option>
-        <option value="MARWIYAH PARAMATA, S.S">MARWIYAH PARAMATA, S.S</option>
-        <option value="MATTAN CHRISTIANI ELMIYATI BOWAKH, S.Sos">MATTAN CHRISTIANI ELMIYATI BOWAKH, S.Sos</option>
-        <option value="MAULANA ANDRIYANTO, ST.">MAULANA ANDRIYANTO, ST.</option>
-        <option value="MAYA SULFIANA, S.Kom.">MAYA SULFIANA, S.Kom.</option>
-        <option value="MOCHAMAD HAFIZ, S.T.">MOCHAMAD HAFIZ, S.T.</option>
-        <option value="MUHAMAD AGUS, SE.">MUHAMAD AGUS, SE.</option>
-        <option value="MUHSIN BAHMID, S.Sos">MUHSIN BAHMID, S.Sos</option>
-        <option value="MUHYIN, S.Sos.">MUHYIN, S.Sos.</option>
-        <option value="MUKHLIS KARYAWAN PUTRA, S.PT.">MUKHLIS KARYAWAN PUTRA, S.PT.</option>
-        <option value="MUSAFIR MONGAN, S.PT">MUSAFIR MONGAN, S.PT</option>
-        <option value="NOVINA SORAYA, ST.">NOVINA SORAYA, ST.</option>
-        <option value="OKTA HELENA KATI JARA, S.Sos, MM">OKTA HELENA KATI JARA, S.Sos, MM</option>
-        <option value="RAFIKA NOVA ARMI, A.Md">RAFIKA NOVA ARMI, A.Md</option>
-        <option value="RISHINTA AMBAR ORCHIDANTI, S.Hut., M.A.P.">RISHINTA AMBAR ORCHIDANTI, S.Hut., M.A.P.</option>
-        <option value="RITA NIARTI, M.Si">RITA NIARTI, M.Si</option>
-        <option value="RIZKY WULANDARI SIREGAR, S.E.">RIZKY WULANDARI SIREGAR, S.E.</option>
-        <option value="RUSMIANA, SE.">RUSMIANA, SE.</option>
-        <option value="SAINUDDIN, S.Sos. M.Si.">SAINUDDIN, S.Sos. M.Si.</option>
-        <option value="SANNY APRIL LINDA DAMANIK, S.Pd., M.IKom.">SANNY APRIL LINDA DAMANIK, S.Pd., M.IKom.</option>
-        <option value="SITI RUSMIYATI, S.Sos.">SITI RUSMIYATI, S.Sos.</option>
-        <option value="SITI ZULAICHAH, S.IP. M.AP">SITI ZULAICHAH, S.IP. M.AP</option>
-        <option value="STELLA ADRIANI E. PURUKAN, S.Sos. MAP">STELLA ADRIANI E. PURUKAN, S.Sos. MAP</option>
-        <option value="T. ZAHIRSYAH, SE">T. ZAHIRSYAH, SE</option>
-        <option value="TB. MOHAMAD YUSUF HIDAYAT, S.Sos., MM.">TB. MOHAMAD YUSUF HIDAYAT, S.Sos., MM.</option>
-        <option value="TRI WURYANTORO, S.Kom.">TRI WURYANTORO, S.Kom.</option>
-        <option value="WIJAYA KUSUMA PUTRA, S.Sos.">WIJAYA KUSUMA PUTRA, S.Sos.</option>
-        <option value="YAN ANWAR, S.Sos.">YAN ANWAR, S.Sos.</option>
-        <option value="YENNI MARLINDA, S.Pt.,MM">YENNI MARLINDA, S.Pt.,MM</option>
-        <option value="YESSI NOVIANI, SE.">YESSI NOVIANI, SE.</option>
-        <option value="YUNITA PINI, S.Pd., M.Pd.I">YUNITA PINI, S.Pd., M.Pd.I</option>
-        <option value="YURIKA, S.S M.pd">YURIKA, S.S M.pd</option>
-
-
-        </select>
+     <div class="mb-5 relative" id="namaContainer">
+      <label for="nama" class="block text-sm font-semibold text-gray-700 mb-2">
+       Nama Lengkap <span class="text-xs font-normal text-purple-600">(Ketik huruf/nama untuk mencari)</span>
+      </label>
+      <div class="relative">
+       <input 
+        type="text" 
+        id="nama" 
+        name="nama"
+        required 
+        autocomplete="off"
+        autocapitalize="words"
+        placeholder="Ketik nama untuk mencari..." 
+        class="w-full pl-10 pr-10 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none transition-colors text-gray-800"
+       >
+       <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-base">🔍</span>
+       <button 
+        type="button" 
+        id="clearNamaBtn" 
+        class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 p-1 rounded-full transition-colors hidden"
+        title="Hapus pencarian"
+       >✕</button>
+      </div>
+      <div 
+       id="namaDropdown" 
+       class="absolute left-0 right-0 top-full mt-1 bg-white border border-gray-200 rounded-lg shadow-2xl max-h-60 overflow-y-auto z-50 hidden divide-y divide-gray-100"
+       style="-webkit-overflow-scrolling: touch;"
+      >
+      </div>
      </div>
      <div class="mb-5"><label for="nip" class="block text-sm font-semibold text-gray-700 mb-2">NIP</label> <input type="text" id="nip" readonly required class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg bg-gray-50 text-gray-700 cursor-not-allowed" placeholder="Akan terisi otomatis">
      </div>
@@ -606,21 +556,186 @@
     };
 
 
-    // Handle name selection change
-    document.getElementById('nama').addEventListener('change', function() {
-      const selectedName = this.value;
-      
-      if (selectedName && employeeDatabase[selectedName]) {
-        const employee = employeeDatabase[selectedName];
-        document.getElementById('nip').value = employee.nip;
-        document.getElementById('jabatan').value = employee.jabatan;
-        document.getElementById('satker').value = employee.satker;
-        
-        showSuccess('Data pegawai berhasil dimuat!');
+    // Autocomplete Search for Nama Pegawai
+    const namaInput = document.getElementById('nama');
+    const namaDropdown = document.getElementById('namaDropdown');
+    const namaContainer = document.getElementById('namaContainer');
+    const clearNamaBtn = document.getElementById('clearNamaBtn');
+    let highlightedIndex = -1;
+    let currentFilteredNames = [];
+
+    function openDropdown() {
+      namaDropdown.classList.remove('hidden');
+    }
+
+    function closeDropdown() {
+      namaDropdown.classList.add('hidden');
+      highlightedIndex = -1;
+    }
+
+    function renderSuggestions(query = '') {
+      const allNames = Object.keys(employeeDatabase);
+      const q = query.trim().toLowerCase();
+
+      // Filter by name or satker
+      currentFilteredNames = q
+        ? allNames.filter(n => {
+            const emp = employeeDatabase[n];
+            return n.toLowerCase().includes(q) || (emp && emp.satker.toLowerCase().includes(q));
+          })
+        : allNames;
+
+      namaDropdown.innerHTML = '';
+      highlightedIndex = -1;
+
+      if (currentFilteredNames.length === 0) {
+        namaDropdown.innerHTML = `
+          <div class="px-4 py-3 text-sm text-gray-500 text-center">
+            Nama pegawai tidak ditemukan
+          </div>
+        `;
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+      currentFilteredNames.forEach((name, index) => {
+        const emp = employeeDatabase[name];
+        const item = document.createElement('div');
+        item.className = 'suggestion-item px-4 py-2.5 hover:bg-purple-50 active:bg-purple-100 cursor-pointer transition-colors text-left';
+        item.setAttribute('data-name', name);
+        item.setAttribute('data-index', index);
+
+        // Highlight matching query
+        let displayName = name;
+        if (q) {
+          const matchIndex = name.toLowerCase().indexOf(q);
+          if (matchIndex !== -1) {
+            const before = name.substring(0, matchIndex);
+            const match = name.substring(matchIndex, matchIndex + q.length);
+            const after = name.substring(matchIndex + q.length);
+            displayName = `${before}<mark class="bg-yellow-200 text-gray-900 rounded px-0.5">${match}</mark>${after}`;
+          }
+        }
+
+        item.innerHTML = `
+          <div class="font-semibold text-gray-800 text-sm">${displayName}</div>
+          <div class="text-xs text-gray-500 truncate mt-0.5">${emp.satker} • ${emp.jabatan}</div>
+        `;
+        fragment.appendChild(item);
+      });
+      namaDropdown.appendChild(fragment);
+    }
+
+    function selectEmployee(name) {
+      const emp = employeeDatabase[name];
+      if (!emp) return;
+      namaInput.value = name;
+      document.getElementById('nip').value = emp.nip;
+      document.getElementById('jabatan').value = emp.jabatan;
+      document.getElementById('satker').value = emp.satker;
+      clearNamaBtn.classList.remove('hidden');
+      closeDropdown();
+      showSuccess('Data pegawai berhasil dimuat!');
+    }
+
+    function updateHighlight(items) {
+      items.forEach((item, idx) => {
+        if (idx === highlightedIndex) {
+          item.classList.add('bg-purple-100');
+          item.scrollIntoView({ block: 'nearest' });
+        } else {
+          item.classList.remove('bg-purple-100');
+        }
+      });
+    }
+
+    namaInput.addEventListener('focus', function() {
+      renderSuggestions(this.value);
+      openDropdown();
+    });
+
+    namaInput.addEventListener('input', function() {
+      const val = this.value;
+      if (val) {
+        clearNamaBtn.classList.remove('hidden');
+      } else {
+        clearNamaBtn.classList.add('hidden');
+      }
+
+      if (employeeDatabase[val]) {
+        const emp = employeeDatabase[val];
+        document.getElementById('nip').value = emp.nip;
+        document.getElementById('jabatan').value = emp.jabatan;
+        document.getElementById('satker').value = emp.satker;
       } else {
         document.getElementById('nip').value = '';
         document.getElementById('jabatan').value = '';
         document.getElementById('satker').value = '';
+      }
+
+      renderSuggestions(val);
+      openDropdown();
+    });
+
+    namaInput.addEventListener('keydown', function(e) {
+      const items = namaDropdown.querySelectorAll('.suggestion-item');
+      if (namaDropdown.classList.contains('hidden') || items.length === 0) {
+        if (e.key === 'ArrowDown') {
+          renderSuggestions(this.value);
+          openDropdown();
+        }
+        return;
+      }
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        highlightedIndex = (highlightedIndex + 1) % items.length;
+        updateHighlight(items);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        highlightedIndex = (highlightedIndex - 1 + items.length) % items.length;
+        updateHighlight(items);
+      } else if (e.key === 'Enter') {
+        if (highlightedIndex >= 0 && highlightedIndex < items.length) {
+          e.preventDefault();
+          const selected = items[highlightedIndex].getAttribute('data-name');
+          selectEmployee(selected);
+        }
+      } else if (e.key === 'Escape') {
+        closeDropdown();
+      }
+    });
+
+    // Handle suggestion click & prevent blur on desktop mouse click
+    namaDropdown.addEventListener('mousedown', function(e) {
+      e.preventDefault();
+    });
+
+    namaDropdown.addEventListener('click', function(e) {
+      const item = e.target.closest('[data-name]');
+      if (item) {
+        selectEmployee(item.getAttribute('data-name'));
+      }
+    });
+
+    // Clear input button
+    clearNamaBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      namaInput.value = '';
+      document.getElementById('nip').value = '';
+      document.getElementById('jabatan').value = '';
+      document.getElementById('satker').value = '';
+      clearNamaBtn.classList.add('hidden');
+      renderSuggestions('');
+      openDropdown();
+      namaInput.focus();
+    });
+
+    // Close dropdown when tapping/clicking outside
+    document.addEventListener('pointerdown', function(e) {
+      if (!namaContainer.contains(e.target)) {
+        closeDropdown();
       }
     });
 
@@ -715,6 +830,13 @@
         return;
       }
 
+      const selectedName = document.getElementById('nama').value.trim();
+      if (!selectedName || !employeeDatabase[selectedName]) {
+        showError('Silakan ketik dan pilih nama pegawai yang terdaftar dari daftar.');
+        document.getElementById('nama').focus();
+        return;
+      }
+
       const submitBtn = document.getElementById('submitBtn');
       const originalText = submitBtn.innerHTML;
       submitBtn.disabled = true;
@@ -753,6 +875,8 @@
         
         // Reset form
         document.getElementById('employeeForm').reset();
+        clearNamaBtn.classList.add('hidden');
+        closeDropdown();
         document.getElementById('retakeBtn').click();
         
       } catch (error) {
@@ -869,6 +993,12 @@
       if (stream) {
         stream.getTracks().forEach(track => track.stop());
       }
+    });
+
+    // Disable right-click / context menu
+    document.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      return false;
     });
   </script>
  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a471e00e56e81fe',t:'MTc2NDEzNjMyMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
