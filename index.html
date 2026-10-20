@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Absensi ProASN TVRI 2026</title>
-  <link rel="icon" type="image/png" href="assets/logotvri.png">
-  <link rel="apple-touch-icon" href="assets/logotvri.png">
+  <title>Presensi ProASN TVRI 2026</title>
+  <link rel="icon" type="image/png" href="https://sdmtvri.github.io/portal_ujian/assets/logotvri.png">
+  <link rel="apple-touch-icon" href="https://sdmtvri.github.io/portal_ujian/assets/logotvri.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -15,6 +15,31 @@
   <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    *, *::before, *::after {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    /* Izinkan input pencarian nama tetap bisa diedit/diketik */
+    input:not([readonly]) {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
+
+    img {
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      user-drag: none;
+      pointer-events: none;
+    }
+
     body {
       box-sizing: border-box;
       margin: 0;
@@ -104,12 +129,12 @@
     .camera-container {
       position: relative;
       width: 100%;
-      max-width: 440px;
+      max-width: 360px;
       margin: 0 auto;
       background: #0f172a;
       border-radius: 0.875rem;
       overflow: hidden;
-      aspect-ratio: 4/3;
+      aspect-ratio: 3/4;
       border: 1px solid #cbd5e1;
       box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
     }
@@ -182,10 +207,10 @@
     <!-- Header outside the card -->
     <header class="header-section">
       <div class="logo-container">
-        <img src="assets/logotvri.png" alt="Logo TVRI" class="logo-img">
+        <img src="https://sdmtvri.github.io/portal_ujian/assets/logotvri.png" alt="Logo TVRI" class="logo-img">
       </div>
       <h1 id="formTitle" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-2 drop-shadow-sm">
-        Absensi ProASN TVRI 2026
+        Presensi ProASN TVRI 2026
       </h1>
       <p id="subtitle" class="text-slate-300 text-sm sm:text-base font-normal max-w-md mx-auto leading-relaxed">
         Lembaga Penyiaran Publik Televisi Republik Indonesia
@@ -223,7 +248,7 @@
         <div class="mb-5">
           <label for="nip" class="block text-sm font-semibold text-slate-700 mb-1.5">NIP</label>
           <input type="text" id="nip" readonly required
-            class="w-full px-4 py-2.5 border border-slate-200 rounded-xl bg-slate-50/90 text-slate-600 font-mono text-sm cursor-not-allowed transition-colors select-all"
+            class="w-full px-4 py-2.5 border border-slate-200 rounded-xl bg-slate-50/90 text-slate-600 font-mono text-sm cursor-not-allowed transition-colors"
             placeholder="Akan terisi otomatis">
         </div>
 
@@ -297,14 +322,14 @@
 
     <!-- Footer -->
     <footer class="text-center mt-8 space-y-1 pb-4">
-      <p class="text-slate-400 font-medium text-sm">© SDM TVRI 2026</p>
+      <p class="text-slate-400 font-medium text-sm">©2026 SDM TVRI</p>
       <p class="text-slate-500 text-xs">Lembaga Penyiaran Publik Televisi Republik Indonesia</p>
     </footer>
 
   </div>
   <script>
     const defaultConfig = {
-      form_title: "Absensi ProASN TVRI 2026",
+      form_title: "Presensi ProASN TVRI 2026",
       subtitle: "Lembaga Penyiaran Publik Televisi Republik Indonesia",
       submit_button_text: "Kirim Data Presensi",
       background_color: "#081325",
@@ -628,8 +653,9 @@
         stream = await navigator.mediaDevices.getUserMedia({
           video: {
             facingMode: { ideal: currentFacingMode },
-            width: { ideal: 640 },
-            height: { ideal: 480 }
+            width: { ideal: 480 },
+            height: { ideal: 640 },
+            aspectRatio: { ideal: 3 / 4 }
           }
         });
         const video = document.getElementById('video');
@@ -665,12 +691,35 @@
         return;
       }
 
-      // Set canvas size to match video
-      canvas.width = video.videoWidth || 640;
-      canvas.height = video.videoHeight || 480;
+      // Output tepat 480x640 (rasio 3:4) presisi sesuai tampilan preview
+      const targetWidth = 480;
+      const targetHeight = 640;
+      const targetRatio = targetWidth / targetHeight; // 0.75
 
-      // Draw the current frame
-      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const videoWidth = video.videoWidth || targetWidth;
+      const videoHeight = video.videoHeight || targetHeight;
+      const videoRatio = videoWidth / videoHeight;
+
+      let srcX = 0;
+      let srcY = 0;
+      let srcW = videoWidth;
+      let srcH = videoHeight;
+
+      // Jika rasio video berbeda dari 3:4 (misal saat dibuka di webcam laptop yang lanskap),
+      // lakukan center-crop agar apa yang tersimpan persis dengan yang terlihat di kotak preview
+      if (Math.abs(videoRatio - targetRatio) > 0.02) {
+        if (videoRatio > targetRatio) {
+          srcW = videoHeight * targetRatio;
+          srcX = (videoWidth - srcW) / 2;
+        } else {
+          srcH = videoWidth / targetRatio;
+          srcY = (videoHeight - srcH) / 2;
+        }
+      }
+
+      canvas.width = targetWidth;
+      canvas.height = targetHeight;
+      context.drawImage(video, srcX, srcY, srcW, srcH, 0, 0, targetWidth, targetHeight);
 
       // Convert to base64
       capturedImage = canvas.toDataURL('image/jpeg', 0.8);
@@ -894,6 +943,20 @@
 
     // Disable right-click / context menu
     document.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      return false;
+    });
+
+    // Disable text selection highlight except for editable inputs
+    document.addEventListener('selectstart', (e) => {
+      if (e.target.tagName !== 'INPUT' || e.target.readOnly) {
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    // Disable drag on all elements
+    document.addEventListener('dragstart', (e) => {
       e.preventDefault();
       return false;
     });
