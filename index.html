@@ -5,6 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Absensi ProASN TVRI 2026</title>
+  <link rel="icon" type="image/png" href="assets/logotvri.png">
+  <link rel="apple-touch-icon" href="assets/logotvri.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -12,35 +19,99 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-      -webkit-touch-callout: none;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #081325;
+      background-image:
+        radial-gradient(at 50% 0%, #162f55 0%, transparent 65%),
+        radial-gradient(at 100% 100%, #0c1a30 0%, transparent 50%),
+        radial-gradient(at 0% 100%, #060e1c 0%, transparent 50%);
+      background-attachment: fixed;
+      color: #0f172a;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     .form-container {
-      min-height: 100%;
+      min-height: 100vh;
       width: 100%;
-      background: linear-gradient(135deg, #363944 0%, #072361 100%);
-      padding: 2rem 1rem;
+      padding: 2.5rem 1rem 3.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .header-section {
+      width: 100%;
+      max-width: 580px;
+      text-align: center;
+      margin-bottom: 1.75rem;
+    }
+
+    .logo-container {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      transition: transform 0.25s ease;
+    }
+
+    .logo-container:hover {
+      transform: scale(1.03);
+    }
+
+    .logo-img {
+      height: 72px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.85)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
     }
 
     .form-card {
-      max-width: 600px;
+      width: 100%;
+      max-width: 580px;
       margin: 0 auto;
-      background: white;
-      border-radius: 1rem;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      padding: 2.5rem;
+      background: #ffffff;
+      border-radius: 1.25rem;
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      box-shadow:
+        0 25px 50px -12px rgba(3, 10, 26, 0.5),
+        0 4px 12px rgba(0, 0, 0, 0.05);
+      padding: 2.25rem;
+    }
+
+    @media (max-width: 640px) {
+      .form-container {
+        padding: 1.5rem 0.875rem 2.5rem 0.875rem;
+      }
+
+      .form-card {
+        padding: 1.5rem 1.25rem;
+        border-radius: 1rem;
+      }
+
+      .logo-img {
+        height: 56px;
+      }
+
+      .logo-container {
+        margin-bottom: 1rem;
+      }
     }
 
     .camera-container {
       position: relative;
       width: 100%;
-      max-width: 400px;
+      max-width: 440px;
       margin: 0 auto;
-      background: #1f2937;
-      border-radius: 0.75rem;
+      background: #0f172a;
+      border-radius: 0.875rem;
       overflow: hidden;
       aspect-ratio: 4/3;
+      border: 1px solid #cbd5e1;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
     }
 
     #video,
@@ -63,29 +134,39 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      font-size: 1.125rem;
+      background: rgba(15, 23, 42, 0.85);
+      color: #f8fafc;
+      font-size: 0.95rem;
+      font-weight: 500;
+      backdrop-filter: blur(2px);
     }
 
     .success-message {
-      background: #10b981;
-      color: white;
-      padding: 1rem;
-      border-radius: 0.5rem;
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      padding: 0.875rem 1rem;
+      border-radius: 0.75rem;
       margin-bottom: 1.5rem;
       display: none;
       text-align: center;
+      font-size: 0.925rem;
+      font-weight: 500;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     }
 
     .error-message {
-      background: #ef4444;
-      color: white;
-      padding: 1rem;
-      border-radius: 0.5rem;
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+      padding: 0.875rem 1rem;
+      border-radius: 0.75rem;
       margin-bottom: 1.5rem;
       display: none;
       text-align: center;
+      font-size: 0.925rem;
+      font-weight: 500;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     }
   </style>
   <style>
@@ -98,88 +179,139 @@
 
 <body>
   <div class="form-container">
-    <div class="form-card">
+    <!-- Header outside the card -->
+    <header class="header-section">
+      <div class="logo-container">
+        <img src="assets/logotvri.png" alt="Logo TVRI" class="logo-img">
+      </div>
+      <h1 id="formTitle" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-2 drop-shadow-sm">
+        Absensi ProASN TVRI 2026
+      </h1>
+      <p id="subtitle" class="text-slate-300 text-sm sm:text-base font-normal max-w-md mx-auto leading-relaxed">
+        Lembaga Penyiaran Publik Televisi Republik Indonesia
+      </p>
+    </header>
+
+    <!-- The White Card -->
+    <main class="form-card">
       <div class="success-message" id="successMessage"></div>
       <div class="error-message" id="errorMessage"></div>
-      <div class="text-center mb-8">
-        <h1 id="formTitle" class="text-3xl font-bold text-gray-800 mb-2">Absensi ProASN TVRI 2026</h1>
-      </div>
+
       <form id="employeeForm">
+        <!-- Input Nama Pegawai -->
         <div class="mb-5 relative" id="namaContainer">
-          <label for="nama" class="block text-sm font-semibold text-gray-700 mb-2">
-            Nama Lengkap <span class="text-xs font-normal text-purple-600">(Ketik huruf/nama untuk mencari)</span>
+          <label for="nama" class="block text-sm font-semibold text-slate-700 mb-2">
+            Nama Lengkap <span class="text-xs font-normal text-blue-600">(Ketik nama/satker untuk mencari)</span>
           </label>
           <div class="relative">
             <input type="text" id="nama" name="nama" required autocomplete="off" autocapitalize="words"
               placeholder="Ketik nama untuk mencari..."
-              class="w-full pl-10 pr-10 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none transition-colors text-gray-800">
-            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-base">🔍</span>
+              class="w-full pl-11 pr-10 py-3 border border-slate-300 rounded-xl focus:border-blue-600 focus:ring-4 focus:ring-blue-500/15 focus:outline-none transition-all text-slate-800 placeholder-slate-400 bg-white font-medium text-sm sm:text-base shadow-sm">
+            <span
+              class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-base">🔍</span>
             <button type="button" id="clearNamaBtn"
-              class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 p-1 rounded-full transition-colors hidden"
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 p-1.5 rounded-full transition-colors hidden"
               title="Hapus pencarian">✕</button>
           </div>
           <div id="namaDropdown"
-            class="absolute left-0 right-0 top-full mt-1 bg-white border border-gray-200 rounded-lg shadow-2xl max-h-60 overflow-y-auto z-50 hidden divide-y divide-gray-100"
+            class="absolute left-0 right-0 top-full mt-1.5 bg-white border border-slate-200 rounded-xl shadow-2xl max-h-60 overflow-y-auto z-50 hidden divide-y divide-slate-100"
             style="-webkit-overflow-scrolling: touch;">
           </div>
         </div>
-        <div class="mb-5"><label for="nip" class="block text-sm font-semibold text-gray-700 mb-2">NIP</label> <input
-            type="text" id="nip" readonly required
-            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg bg-gray-50 text-gray-700 cursor-not-allowed"
+
+        <!-- NIP -->
+        <div class="mb-5">
+          <label for="nip" class="block text-sm font-semibold text-slate-700 mb-1.5">NIP</label>
+          <input type="text" id="nip" readonly required
+            class="w-full px-4 py-2.5 border border-slate-200 rounded-xl bg-slate-50/90 text-slate-600 font-mono text-sm cursor-not-allowed transition-colors select-all"
             placeholder="Akan terisi otomatis">
         </div>
-        <div class="mb-5"><label for="jabatan" class="block text-sm font-semibold text-gray-700 mb-2">Jabatan</label>
+
+        <!-- Jabatan -->
+        <div class="mb-5">
+          <label for="jabatan" class="block text-sm font-semibold text-slate-700 mb-1.5">Jabatan</label>
           <input type="text" id="jabatan" readonly required
-            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg bg-gray-50 text-gray-700 cursor-not-allowed"
+            class="w-full px-4 py-2.5 border border-slate-200 rounded-xl bg-slate-50/90 text-slate-600 text-sm cursor-not-allowed transition-colors"
             placeholder="Akan terisi otomatis">
         </div>
-        <div class="mb-6"><label for="satker" class="block text-sm font-semibold text-gray-700 mb-2">Satuan
-            Kerja</label> <input type="text" id="satker" readonly required
-            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg bg-gray-50 text-gray-700 cursor-not-allowed"
+
+        <!-- Satuan Kerja -->
+        <div class="mb-6">
+          <label for="satker" class="block text-sm font-semibold text-slate-700 mb-1.5">Satuan Kerja</label>
+          <input type="text" id="satker" readonly required
+            class="w-full px-4 py-2.5 border border-slate-200 rounded-xl bg-slate-50/90 text-slate-600 text-sm cursor-not-allowed transition-colors"
             placeholder="Akan terisi otomatis">
         </div>
-        <div class="mb-6"><label class="block text-sm font-semibold text-gray-700 mb-3">Foto Presensi</label>
+
+        <!-- Foto Presensi -->
+        <div class="mb-6">
+          <label class="block text-sm font-semibold text-slate-700 mb-2.5">Foto Presensi</label>
           <div class="camera-container">
             <video id="video" autoplay playsinline muted></video>
             <canvas id="canvas"></canvas>
-            <div class="camera-overlay" id="cameraOverlay"><span>Mengaktifkan kamera...</span>
-            </div>
+            <div class="camera-overlay" id="cameraOverlay"><span>Mengaktifkan kamera...</span></div>
           </div>
           <div class="flex gap-2 sm:gap-3 mt-4">
             <button type="button" id="switchCameraBtn"
-              class="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm"
+              class="inline-flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2.5 bg-slate-50 hover:bg-slate-100 active:bg-slate-200 text-slate-700 text-sm font-medium rounded-xl border border-slate-200 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400/20 cursor-pointer shadow-none"
               title="Ganti Kamera Depan / Belakang">
-              🔄 <span class="text-sm">Ganti Kamera</span>
+              <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              <span>Ganti Kamera</span>
             </button>
             <button type="button" id="captureBtn"
-              class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors shadow-sm">
-              📸 Ambil Foto </button>
+              class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm sm:text-base font-medium rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500/25 shadow-sm cursor-pointer">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>Ambil Foto</span>
+            </button>
             <button type="button" id="retakeBtn"
-              class="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors shadow-sm"
-              style="display: none;"> 🔄 Ambil Ulang </button>
+              class="flex-1 items-center justify-center gap-2 px-5 py-2.5 bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 text-sm sm:text-base font-medium rounded-xl border border-slate-200 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400/20 shadow-none cursor-pointer"
+              style="display: none;">
+              <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              <span>Ambil Ulang</span>
+            </button>
           </div>
-        </div><button type="submit" id="submitBtn"
-          class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold py-4 px-6 rounded-lg transition-all transform hover:scale-105 shadow-lg">
-          <span id="submitButtonText">Kirim Data</span> </button>
-      </form>
-    </div>
+        </div>
 
-    <div class="text-center mt-8">
-      <p class="text-white font-semibold text-lg">©️SDM TVRI</p>
-      <p class="text-white font-semibold text-lg">2026</p>
-    </div>
+        <!-- Submit Button -->
+        <button type="submit" id="submitBtn"
+          class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold text-base rounded-xl transition-all duration-150 shadow-sm hover:shadow focus:outline-none focus:ring-4 focus:ring-blue-500/20 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer">
+          <svg class="w-5 h-5 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span id="submitButtonText">Kirim Data Presensi</span>
+        </button>
+      </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center mt-8 space-y-1 pb-4">
+      <p class="text-slate-400 font-medium text-sm">© SDM TVRI 2026</p>
+      <p class="text-slate-500 text-xs">Lembaga Penyiaran Publik Televisi Republik Indonesia</p>
+    </footer>
 
   </div>
   <script>
     const defaultConfig = {
-      form_title: "Form Data Pegawai",
-      subtitle: "Lengkapi semua kolom di bawah ini",
-      submit_button_text: "Kirim Data",
-      background_color: "#667eea",
+      form_title: "Absensi ProASN TVRI 2026",
+      subtitle: "Lembaga Penyiaran Publik Televisi Republik Indonesia",
+      submit_button_text: "Kirim Data Presensi",
+      background_color: "#081325",
       card_color: "#ffffff",
-      primary_button_color: "#7c3aed",
-      text_color: "#1f2937",
-      accent_color: "#2563eb"
+      primary_button_color: "#2563eb",
+      text_color: "#ffffff",
+      accent_color: "#1d4ed8"
     };
 
     let stream = null;
@@ -346,7 +478,7 @@
       currentFilteredNames.forEach((name, index) => {
         const emp = employeeDatabase[name];
         const item = document.createElement('div');
-        item.className = 'suggestion-item px-4 py-2.5 hover:bg-purple-50 active:bg-purple-100 cursor-pointer transition-colors text-left';
+        item.className = 'suggestion-item px-4 py-3 hover:bg-blue-50/80 active:bg-blue-100/70 cursor-pointer transition-colors text-left';
         item.setAttribute('data-name', name);
         item.setAttribute('data-index', index);
 
@@ -358,13 +490,13 @@
             const before = name.substring(0, matchIndex);
             const match = name.substring(matchIndex, matchIndex + q.length);
             const after = name.substring(matchIndex + q.length);
-            displayName = `${before}<mark class="bg-yellow-200 text-gray-900 rounded px-0.5">${match}</mark>${after}`;
+            displayName = `${before}<mark class="bg-blue-100 text-blue-900 font-semibold rounded px-1">${match}</mark>${after}`;
           }
         }
 
         item.innerHTML = `
-          <div class="font-semibold text-gray-800 text-sm">${displayName}</div>
-          <div class="text-xs text-gray-500 truncate mt-0.5">${emp.satker} • ${emp.jabatan}</div>
+          <div class="font-semibold text-slate-800 text-sm">${displayName}</div>
+          <div class="text-xs text-slate-500 truncate mt-0.5">${emp.satker} • ${emp.jabatan}</div>
         `;
         fragment.appendChild(item);
       });
@@ -386,10 +518,10 @@
     function updateHighlight(items) {
       items.forEach((item, idx) => {
         if (idx === highlightedIndex) {
-          item.classList.add('bg-purple-100');
+          item.classList.add('bg-blue-50');
           item.scrollIntoView({ block: 'nearest' });
         } else {
-          item.classList.remove('bg-purple-100');
+          item.classList.remove('bg-blue-50');
         }
       });
     }
@@ -548,7 +680,7 @@
       canvas.style.display = 'block';
       document.getElementById('captureBtn').style.display = 'none';
       document.getElementById('switchCameraBtn').style.display = 'none';
-      document.getElementById('retakeBtn').style.display = 'block';
+      document.getElementById('retakeBtn').style.display = 'inline-flex';
 
       showSuccess('Foto berhasil diambil!');
     });
@@ -560,7 +692,7 @@
 
       video.style.display = 'block';
       canvas.style.display = 'none';
-      document.getElementById('captureBtn').style.display = 'block';
+      document.getElementById('captureBtn').style.display = 'inline-flex';
       document.getElementById('switchCameraBtn').style.display = 'inline-flex';
       document.getElementById('retakeBtn').style.display = 'none';
       capturedImage = null;
@@ -585,7 +717,13 @@
       const submitBtn = document.getElementById('submitBtn');
       const originalText = submitBtn.innerHTML;
       submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span>⏳ Mengirim data...</span>';
+      submitBtn.innerHTML = `
+        <svg class="w-5 h-5 animate-spin text-white" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span>Mengirim data...</span>
+      `;
 
       const formData = {
         nama: document.getElementById('nama').value,
@@ -605,13 +743,13 @@
       };
 
       try {
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwoi6AVfXtYhzTPXOpJ8pi0HGLxmzQ7iP_fiMBoX_vshitSlBrdih8czA_4M5nJB-BK/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxcTpfUjfQXG9e7yAPC_i33ChlmBhoYRnTBzU5BqEuqoePOKIFmWpt00ljPKPTJZCtOFg/exec';
 
         const response = await fetch(GOOGLE_SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors',
           headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'text/plain;charset=utf-8',
           },
           body: JSON.stringify(formData)
         });
@@ -652,20 +790,34 @@
 
     // Element SDK Implementation
     async function onConfigChange(config) {
-      document.getElementById('formTitle').textContent = config.form_title || defaultConfig.form_title;
-      document.getElementById('subtitle').textContent = config.subtitle || defaultConfig.subtitle;
-      document.getElementById('submitButtonText').textContent = config.submit_button_text || defaultConfig.submit_button_text;
+      if (document.getElementById('formTitle')) {
+        document.getElementById('formTitle').textContent = config.form_title || defaultConfig.form_title;
+        document.getElementById('formTitle').style.color = config.text_color || defaultConfig.text_color;
+      }
+      if (document.getElementById('subtitle')) {
+        document.getElementById('subtitle').textContent = config.subtitle || defaultConfig.subtitle;
+      }
+      if (document.getElementById('submitButtonText')) {
+        document.getElementById('submitButtonText').textContent = config.submit_button_text || defaultConfig.submit_button_text;
+      }
 
       const backgroundColor = config.background_color || defaultConfig.background_color;
       const cardColor = config.card_color || defaultConfig.card_color;
       const primaryButtonColor = config.primary_button_color || defaultConfig.primary_button_color;
-      const textColor = config.text_color || defaultConfig.text_color;
       const accentColor = config.accent_color || defaultConfig.accent_color;
 
-      document.querySelector('.form-container').style.background = `linear-gradient(135deg, ${backgroundColor} 0%, ${primaryButtonColor} 100%)`;
-      document.querySelector('.form-card').style.background = cardColor;
-      document.getElementById('formTitle').style.color = textColor;
-      document.getElementById('submitBtn').style.background = `linear-gradient(to right, ${primaryButtonColor}, ${accentColor})`;
+      const container = document.querySelector('.form-container');
+      if (container && config.background_color) {
+        container.style.backgroundColor = backgroundColor;
+      }
+      const card = document.querySelector('.form-card');
+      if (card && config.card_color) {
+        card.style.backgroundColor = cardColor;
+      }
+      const submitBtn = document.getElementById('submitBtn');
+      if (submitBtn && (config.primary_button_color || config.accent_color)) {
+        submitBtn.style.background = `linear-gradient(to right, ${primaryButtonColor}, ${accentColor})`;
+      }
     }
 
     function mapToCapabilities(config) {
